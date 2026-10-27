@@ -231,6 +231,33 @@ html[dir="ltr"] .dt-switch[data-on="1"] .dt-switch-knob{ transform:translateX(ca
 .dt-btn-ghost{ background:rgba(255,255,255,.06); color:#fff; border-color:rgba(255,255,255,.18); }
 .dt-btn-ghost:hover{ background:rgba(255,255,255,.12); transform:translateY(-2px); }
 
+/* attention-grabbing CTA treatment — save contact / primary catalog CTA */
+.dt-btn-attention{
+  background:linear-gradient(135deg, var(--copper), #FF9A3D);
+  color:#201000;
+  border-color:transparent;
+  animation:dt-pulse 2.4s ease-in-out infinite;
+}
+.dt-btn-attention:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(201,123,61,.5); }
+@keyframes dt-pulse{
+  0%{ box-shadow:0 0 0 0 rgba(201,123,61,.5); }
+  70%{ box-shadow:0 0 0 14px rgba(201,123,61,0); }
+  100%{ box-shadow:0 0 0 0 rgba(201,123,61,0); }
+}
+/* matching, quieter ring treatment for the share button */
+.dt-btn-attention-ring{
+  border-color:var(--copper);
+  animation:dt-pulse-ring 2.4s ease-in-out infinite;
+}
+@keyframes dt-pulse-ring{
+  0%{ box-shadow:0 0 0 0 rgba(201,123,61,.45); }
+  70%{ box-shadow:0 0 0 10px rgba(201,123,61,0); }
+  100%{ box-shadow:0 0 0 0 rgba(201,123,61,0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .dt-btn-attention, .dt-btn-attention-ring{ animation:none; }
+}
+
 .dt-hero-channels{ display:flex; gap:10px; flex-wrap:wrap; }
 .dt-chip{
   display:inline-flex; align-items:center; justify-content:center;
@@ -420,6 +447,8 @@ html[dir="ltr"] .dt-wire-text span{ text-align:left; }
   border-radius:var(--radius-m); padding:24px; color:#fff;
 }
 .dt-qr-box{ background:#fff; padding:8px; border-radius:10px; flex-shrink:0; }
+.dt-qr-card{ text-decoration:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; }
+.dt-qr-card:hover{ transform:translateY(-3px); box-shadow:0 16px 34px rgba(0,0,0,.35); }
 .dt-qr-box img, .dt-qr-box canvas{ display:block; width:92px; height:92px; }
 .dt-qr-text b{ display:block; font-size:15px; margin-bottom:4px; }
 .dt-qr-text span{ font-size:13px; color:#AEB8E0; }
@@ -494,33 +523,30 @@ html[dir="ltr"] .dt-wire-text span{ text-align:left; }
 <section class="dt-hero">
   <div class="wrap dt-hero-grid">
     <div>
-      <div class="dt-eyebrow"><span class="dt-dot"></span>
-        <span data-fa>تأمین‌کننده تجهیزات سازمانی</span><span data-en>Organizational Equipment Supplier</span>
-      </div>
       <h1 class="dt-name">
-        <span data-fa>مهدی خواجه</span><span data-en>Mahdi Khajeh</span>
+        <span data-fa>دارا تجهیز شاهان</span><span data-en>Dara Tajhiz Shahan</span>
       </h1>
       <p class="dt-role">
-        <span data-fa>مدیرعامل · دارا تجهیز شاهان</span><span data-en>Managing Director · Dara Tajhiz Shahan</span>
+        <span data-fa>مهدی خواجه · مدیرعامل</span><span data-en>Mahdi Khajeh · Managing Director</span>
       </p>
       <p class="dt-tagline">
-        <span data-fa>تأمین تجهیزات الکتریکی و کالای صنعتی برای سازمان‌ها، با سرعت و دقت کارگاهی — از کلید و پریز تا ملزومات اداری، غذایی و بهداشتی.</span>
-        <span data-en>Electrical equipment and industrial supply for organizations — sourced with workshop-grade precision, from switches and panels to office, food, and hygiene essentials.</span>
+        <span data-fa>تأمین‌کننده انواع تجهیزات الکتریکی، ساختمانی و صنعتی، لوازم‌التحریر و اداری، و حتی مواد غذایی و شوینده و بهداشتی و هر آنچه سازمان شما به آن نیاز دارد.</span>
+        <span data-en>Supplier of electrical, construction, and industrial equipment, office stationery, and even food, cleaning, and hygiene products — everything your organization needs.</span>
       </p>
 
       <div class="dt-hero-actions">
-        <button class="dt-btn dt-btn-primary" id="saveContactBtn">
+        <button class="dt-btn dt-btn-attention" id="saveContactBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M19 8v6M16 11h6"/></svg>
           <span data-fa>ذخیره مخاطب</span><span data-en>Save Contact</span>
         </button>
-        <button class="dt-btn dt-btn-ghost" id="shareBtn">
+        <button class="dt-btn dt-btn-ghost dt-btn-attention-ring" id="shareBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
           <span data-fa>اشتراک‌گذاری</span><span data-en>Share</span>
         </button>
       </div>
 
       <div class="dt-hero-channels">
-        <a class="dt-chip wa" href="https://wa.me/989360212567" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a class="dt-chip wa" href="https://wa.me/989125363247" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20z"/></svg>
         </a>
         <a class="dt-chip tg" href="https://t.me/mahdimmm82" target="_blank" rel="noopener" aria-label="Telegram">
@@ -588,7 +614,7 @@ html[dir="ltr"] .dt-wire-text span{ text-align:left; }
     </div>
 
     <div class="dt-catalog-cta reveal">
-      <a class="dt-btn dt-btn-primary" href="http://daratamin.com/wp-content/uploads/2026/09/%DA%A9%D8%A7%D8%AA%D8%A7%D9%84%D9%88%DA%AF.pdf" target="_blank" rel="noopener">
+      <a class="dt-btn dt-btn-attention" href="http://daratamin.com/wp-content/uploads/2026/09/%DA%A9%D8%A7%D8%AA%D8%A7%D9%84%D9%88%DA%AF.pdf" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
         <span data-fa>دریافت کاتالوگ کامل</span><span data-en>Download Full Catalog</span>
       </a>
@@ -662,9 +688,9 @@ html[dir="ltr"] .dt-wire-text span{ text-align:left; }
     <h2 class="dt-h2 reveal"><span data-fa>از هر کانالی که راحت‌ترید</span><span data-en>Reach out on any channel</span></h2>
 
     <div class="dt-contact-grid">
-      <a class="dt-wire reveal" style="--wire-color:#25D366" href="https://wa.me/989360212567" target="_blank" rel="noopener">
+      <a class="dt-wire reveal" style="--wire-color:#25D366" href="https://wa.me/989125363247" target="_blank" rel="noopener">
         <span class="dt-wire-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20z"/></svg></span>
-        <span class="dt-wire-text"><b data-fa>واتساپ</b><b data-en>WhatsApp</b><span>+98 936 021 2567</span></span>
+        <span class="dt-wire-text"><b data-fa>واتساپ</b><b data-en>WhatsApp</b><span>+98 912 536 3247</span></span>
       </a>
       <a class="dt-wire reveal" style="--wire-color:#229ED9" href="https://t.me/mahdimmm82" target="_blank" rel="noopener">
         <span class="dt-wire-icon"><svg viewBox="0 0 24 24"><path d="M21.9 3.1 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.8l-5-1.6c-1.1-.3-1.1-1.1.2-1.6L20.8 3c.9-.3 1.7.2 1.1.1z"/></svg></span>
@@ -678,9 +704,9 @@ html[dir="ltr"] .dt-wire-text span{ text-align:left; }
         <span class="dt-wire-icon" style="font-weight:800;font-size:13px;">بله</span>
         <span class="dt-wire-text"><b data-fa>بله</b><b data-en>Bale</b><span>@mahdikhajeh</span></span>
       </a>
-      <a class="dt-wire reveal" style="--wire-color:#C97B3D" href="tel:+989360212567">
+      <a class="dt-wire reveal" style="--wire-color:#C97B3D" href="tel:+989125363247">
         <span class="dt-wire-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2z"/></svg></span>
-        <span class="dt-wire-text"><b data-fa>تلفن</b><b data-en>Phone</b><span>+98 936 021 2567</span></span>
+        <span class="dt-wire-text"><b data-fa>تلفن</b><b data-en>Phone</b><span>+98 912 536 3247</span></span>
       </a>
       <a class="dt-wire reveal" style="--wire-color:var(--blue)" href="mailto:contact@dtsco.ir">
         <span class="dt-wire-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
@@ -688,13 +714,13 @@ html[dir="ltr"] .dt-wire-text span{ text-align:left; }
       </a>
     </div>
 
-    <div class="dt-qr-card reveal">
+    <a class="dt-qr-card reveal" href="https://daratamin.com" target="_blank" rel="noopener">
       <div class="dt-qr-box" id="qrBox"></div>
       <div class="dt-qr-text">
         <b><span data-fa>اسکن برای صفحه زنده</span><span data-en>Scan for the live page</span></b>
-        <span>daratamin.com</span>
+        <span>daratamin.com · dtsco.ir</span>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -828,20 +854,22 @@ html[dir="ltr"] .dt-wire-text span{ text-align:left; }
   document.getElementById('saveContactBtn').addEventListener('click', function(){
     var lines = [
       'BEGIN:VCARD','VERSION:3.0',
-      'N:Khajeh;Mahdi;;;',
-      'FN:Mahdi Khajeh',
-      'ORG:Dara Tajhiz Shahan',
-      'TITLE:Managing Director',
-      'TEL;TYPE=CELL:+989360212567',
+      'N;CHARSET=UTF-8:خواجه;مهدی;;;',
+      'FN;CHARSET=UTF-8:مهدی خواجه',
+      'ORG;CHARSET=UTF-8:دارا تجهیز شاهان',
+      'TITLE;CHARSET=UTF-8:مدیرعامل',
+      'NOTE;CHARSET=UTF-8:ارائه‌دهنده انواع کالاهای الکتریکی، لوازم‌التحریر اداری، مواد غذایی و شوینده و بهداشتی — واتساپ و تلگرام: ۰۹۱۲۵۳۶۳۲۴۷ — بله و ایتا: ۰۹۳۶۰۲۱۲۵۶۷',
+      'TEL;TYPE=CELL:+989125363247',
+      'TEL;TYPE=WORK:+989360212567',
       'EMAIL:contact@dtsco.ir',
-      'ADR;TYPE=WORK:;;Bazar Bozorg, Bazar Chehel Tan, Saraye Gardan-e-Kaj, No.8;Tehran;;;Iran',
+      'ADR;TYPE=WORK;CHARSET=UTF-8:;;تهران، بازار بزرگ، بازار چهل‌تن، سرای گردن‌کج، پلاک ۸;تهران;;;ایران',
       'URL:https://daratamin.com',
       'END:VCARD'
     ];
     var blob = new Blob([lines.join('\r\n')], {type:'text/vcard;charset=utf-8'});
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
-    a.href = url; a.download = 'Mahdi-Khajeh.vcf';
+    a.href = url; a.download = 'مهدی-خواجه.vcf';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
     showToast('مخاطب ذخیره شد', 'Contact saved');
